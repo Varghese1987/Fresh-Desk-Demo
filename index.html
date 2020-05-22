@@ -3,12 +3,19 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <style>
   .bg{
     background: #007bff;
     background: linear-gradient(to right, #0062E6, #33AEFF);
+  }
+  
+  @media (min-width: 992px) {
+  .card:hover {
+    margin-top: -.25rem;
+    margin-bottom: .25rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+  }
   }
 </style>
 </head>
@@ -16,7 +23,7 @@
   <button id = "create" onclick = "createTicket()">Create ticket</button>
   <button>Delete ticket</button>
 <br/></br>
-  <div id = 'response'></div>
+  
   <script src ="freshdesk.js"></script>
 </table>
 </body>
