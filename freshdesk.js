@@ -107,17 +107,6 @@ $.ajax(
         `
     }
     document.getElementById('ticket').innerHTML = `${data.map(template).join('')}`
-
-      // var tbl=$("<table/>").attr('id','mytable');
-      // $('#response').append(tbl);
-
-      // for(var i=0;i<obj.length;i++)
-      // {
-      //   var td1 = document.createElement('div');
-      //   td1.setAttribute('id',`${obj[i].subject}`);
-      //   td1.innerHTML = `${obj[i].subject}`;
-      //   document.getElementById('mytable').appendChild(td1);
-      // }
     },
     error: function(){
         alert("Page Load Error");
@@ -127,7 +116,7 @@ $.ajax(
 $("#create").click(
   function() {
 
-    // var ticketSub = document.getElementById('subject').value;
+    var ticketSub = document.getElementById('subject').value;
     // console.log(ticketSub);
     alert(ticketSub);
 
