@@ -29,7 +29,7 @@ document.body.innerHTML=`
                       <label for="exampleFormControlTextarea1">Example textarea</label>
                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                    <button id = "create"type="submit" class="btn btn-primary">Submit</button>
+                    <button id = "create" type="submit" class="btn btn-primary">Submit</button>
                 </form>          
 
           </div>
@@ -120,19 +120,21 @@ $.ajax(
       // }
     },
     error: function(){
-        $('#response').html("Page Load Error");
+        alert("Page Load Error");
     }
 });
 
 $("#create").click(
   function() {
 
-    var ticketSub = "Ticket3"
+    // var ticketSub = document.getElementById('subject').value;
+    // console.log(ticketSub);
+    alert(ticketSub);
 
     ticket_data = `
     { 
-      "description": "${document.getElementById('Textarea').innerText}", 
-      "subject": "${document.getElementById('subject').innerText}", 
+      "description": "${document.getElementById('Textarea').value}", 
+      "subject": "${document.getElementById('subject').value}", 
       "email": "tom@outerspace.com", 
       "priority": 1, 
       "status": 2, 
@@ -151,7 +153,7 @@ $("#create").click(
         data: ticket_data,
       }      
     );
-    location.reload(true);
+    //location.reload(true);
   }
 );
 
