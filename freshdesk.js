@@ -57,8 +57,8 @@ document.body.innerHTML=`
 
             <form>
                     <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" class="form-control" id="subject" placeholder="Ticket Subject">
+                        <label for="subject1">Subject</label>
+                        <input type="text" class="form-control" id="subject1" placeholder="Ticket Subject">
                     </div>
                     <div class="form-group">
                       <label for="Textarea1">Example textarea</label>
@@ -117,10 +117,11 @@ $("#create").click(
   function() {
 
     var ticketSub = document.getElementById('subject').value;
+    var ticketDes = document.getElementById('Textarea').value;
     // console.log(ticketSub);
     alert(ticketSub);
 
-    ticket_data = '{ "description": "Details about the issue...1", "subject": "Support Needed...1", "email": "tom@outerspace.com", "priority": 1, "status": 2, "cc_emails": ["ram@freshdesk.com","diana@freshdesk.com"] }';
+    ticket_data = '{ "description": "'+ticketDes+'", "subject": "'+ticketSub+'", "email": "tom@outerspace.com", "priority": 1, "status": 2, "cc_emails": ["ram@freshdesk.com","diana@freshdesk.com"] }';
 
     $.ajax(
       {
