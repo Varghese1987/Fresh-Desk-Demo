@@ -1,3 +1,11 @@
+var div_cont = document.createElement('div');
+div_cont.setAttribute('class', 'container');
+document.body.appendChild(div_cont);
+
+var div_row = document.createElement('div');
+div_row.setAttribute('class', 'row');
+div_cont.appendChild(div_row);
+
 $(document).ready(function(){
 var yourdomain = 'varghese87es'; 
 var api_key = '2lvC7tLptQmim0c4QmEn'; 
@@ -12,17 +20,30 @@ $.ajax(
     success: function(data)
     {
       console.log(data);
-      var obj = data;
-      var tbl=$("<table/>").attr('id','mytable');
-      $('#response').append(tbl);
+      
+      function template(ticket) {
+        return `
+        <div class = "col-lg-4">
+        <div class="card" style="width: 18rem; height:15rem; margin:1rem;">
+        <h5>${ticket.subject}</h5>
+        
+        <p class="card-text">Click on the flag image for weather </p>
+        </div>
+        </div>
+        `
+    }
+    div_row.innerHTML = `${data.map(template).join('')}`
 
-      for(var i=0;i<obj.length;i++)
-      {
-        var td1 = document.createElement('div');
-        td1.setAttribute('id',`${obj[i].subject}`);
-        td1.innerHTML = `${obj[i].subject}`;
-        document.getElementById('mytable').appendChild(td1);
-      }
+      // var tbl=$("<table/>").attr('id','mytable');
+      // $('#response').append(tbl);
+
+      // for(var i=0;i<obj.length;i++)
+      // {
+      //   var td1 = document.createElement('div');
+      //   td1.setAttribute('id',`${obj[i].subject}`);
+      //   td1.innerHTML = `${obj[i].subject}`;
+      //   document.getElementById('mytable').appendChild(td1);
+      // }
     },
     error: function(){
         $('#response').html("Page Load Error");
@@ -53,5 +74,3 @@ $("#create").click(
 );
 
 });
-
-
