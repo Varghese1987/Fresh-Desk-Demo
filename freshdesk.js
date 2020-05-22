@@ -57,19 +57,25 @@ document.body.innerHTML=`
 
             <form>
                     <div class="form-group">
-                        <label for="subject1">Subject</label>
-                        <input type="text" class="form-control" id="subject1" placeholder="Ticket Subject">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name">
                     </div>
                     <div class="form-group">
-                      <label for="Textarea1">Example textarea</label>
-                      <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="@email">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Phone Number">
+                    </div>
+                    
+                    <button id = "create1"type="submit" class="btn btn-primary">Submit</button>
                 </form>          
 
           </div>
         </div>
 
+        <div id = "contact"class = "row"></div>
 
       </div>
     </div>
@@ -133,6 +139,66 @@ $("#create").click(
           "Authorization": "Basic " + btoa(api_key + ":x")
         },
         data: ticket_data,
+      }      
+    );
+    //location.reload(true);
+  }
+);
+
+$.ajax(
+  {
+    url: "https://"+yourdomain+".freshdesk.com/api/v2/contacts",
+    type: 'GET',
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    headers: {"Authorization": "Basic " + btoa(api_key + ":x")},
+    success: function(data)
+    {
+      console.log(data);
+      
+      function template(item) {
+        return `
+        
+        <div class="card">
+          <h5 class="card-header">${item.name}</h5>
+          <div class="card-body">
+            <p class="card-text">${item.email}</p>
+            <p class="card-text">${item.phone}</p>
+            <button type="button" class="btn btn-primary">Edit</button>
+          </div>
+          <div class="card-footer bg-transparent border-success">Footer</div>
+        </div>
+        
+        `
+    }
+    document.getElementById('contact').innerHTML = `${data.map(template).join('')}`
+    },
+    error: function(){
+        alert("Page Load Error");
+    }
+});
+
+$("#create1").click(
+  function() {
+
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('phone').value;
+    var phone = document.getElementById('email').value;
+    // console.log(ticketSub);
+    alert(name);
+
+    contact_data = '{ "name": "'+name+'", "email": "'+email+'", "phone":"'+phone+'"}';
+
+    $.ajax(
+      {
+        url: "https://"+yourdomain+".freshdesk.com/api/v2/contacts",
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        headers: {
+          "Authorization": "Basic " + btoa(api_key + ":x")
+        },
+        data: contact_data,
       }      
     );
     //location.reload(true);
