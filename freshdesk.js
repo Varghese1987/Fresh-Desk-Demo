@@ -26,8 +26,8 @@ document.body.innerHTML=`
                         <input type="text" class="form-control" id="subject" placeholder="Ticket Subject">
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Example textarea</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      <label for="Textarea">Example textarea</label>
+                      <textarea class="form-control" id="Textarea" rows="3"></textarea>
                     </div>
                     <button id = "create" type="submit" class="btn btn-primary">Submit</button>
                 </form>          
@@ -61,8 +61,8 @@ document.body.innerHTML=`
                         <input type="text" class="form-control" id="subject" placeholder="Ticket Subject">
                     </div>
                     <div class="form-group">
-                      <label for="Textarea">Example textarea</label>
-                      <textarea class="form-control" id="Textarea" rows="3"></textarea>
+                      <label for="Textarea1">Example textarea</label>
+                      <textarea class="form-control" id="Textarea1" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>          
