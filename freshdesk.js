@@ -9,16 +9,13 @@ document.body.innerHTML = `
         </button>
       </h2>
     </div>
-
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-
         <p>
         <center><a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Create a New Ticket</a></center>
         </p>
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
-
             <form>
                     <div class="form-group">
                         <label for="subject">Subject</label>
@@ -115,7 +112,7 @@ $(document).ready(function () {
 
         }
         document.getElementById('ticket').innerHTML = `${data.map(template).join('')}`
-        
+
       },
       error: function () {
         alert("Page Load Error");
@@ -127,7 +124,7 @@ $(document).ready(function () {
 
       var ticketSub = document.getElementById('subject').value;
       var ticketDes = document.getElementById('Textarea').value;
-      
+
       alert(ticketSub);
 
       ticket_data = '{ "description": "' + ticketDes + '", "subject": "' + ticketSub + '", "email": "tom@outerspace.com", "priority": 1, "status": 2, "cc_emails": ["ram@freshdesk.com","diana@freshdesk.com"] }';
@@ -144,7 +141,7 @@ $(document).ready(function () {
           data: ticket_data,
         }
       );
-      //location.reload(true);
+
     }
   );
 
@@ -188,7 +185,7 @@ $(document).ready(function () {
       var name = document.getElementById('name').value;
       var email = document.getElementById('email').value;
       var phone = document.getElementById('phone').value;
-      // console.log(ticketSub);
+
       alert(name);
 
       contact_data = '{ "name": "' + name + '", "email": ' + email + ', "phone":' + phone + '}';
@@ -205,13 +202,13 @@ $(document).ready(function () {
           data: contact_data,
         }
       );
-      //location.reload(true);
+
     }
-  );      
+  );
 
 });
 
-function deleteTicket(value){
+function deleteTicket(value) {
 
   var yourdomain = 'varghese87es';
   var api_key = '2lvC7tLptQmim0c4QmEn';
@@ -219,7 +216,7 @@ function deleteTicket(value){
 
   $.ajax(
     {
-      url: "https://" + yourdomain + ".freshdesk.com/api/v2/tickets/"+ticket_id,
+      url: "https://" + yourdomain + ".freshdesk.com/api/v2/tickets/" + ticket_id,
       type: 'DELETE',
       contentType: "application/json; charset=utf-8",
       dataType: "json",
@@ -232,10 +229,10 @@ function deleteTicket(value){
         alert("Page Load Error");
       }
     });
-  
+
 }
 
-function deleteContact(value){
+function deleteContact(value) {
 
   var yourdomain = 'varghese87es';
   var api_key = '2lvC7tLptQmim0c4QmEn';
@@ -243,7 +240,7 @@ function deleteContact(value){
 
   $.ajax(
     {
-      url: "https://" + yourdomain + ".freshdesk.com/api/v2/contacts/"+ticket_id,
+      url: "https://" + yourdomain + ".freshdesk.com/api/v2/contacts/" + ticket_id,
       type: 'DELETE',
       contentType: "application/json; charset=utf-8",
       dataType: "json",
@@ -256,5 +253,5 @@ function deleteContact(value){
         alert("Page Load Error");
       }
     });
-  
+
 }
