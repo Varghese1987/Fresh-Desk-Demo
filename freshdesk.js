@@ -1,5 +1,3 @@
-// 
-
 document.body.innerHTML=`
 <div class="accordion" id="accordionExample">
   <div class="card">
