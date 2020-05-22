@@ -67,7 +67,7 @@ document.body.innerHTML = `
                         <input type="text" class="form-control" id="phone" placeholder="Phone Number">
                     </div>
                     
-                    <button id = "create1"type="submit" class="btn btn-primary">Submit</button>
+                    <button id = "create1" type="submit" class="btn btn-primary">Submit</button>
                 </form>          
 
           </div>
@@ -183,7 +183,7 @@ $(document).ready(function () {
       // console.log(ticketSub);
       alert(name);
 
-      contact_data = '{ "name": "' + name + '", "email": "' + email + '", "phone":"' + phone + '"}';
+      contact_data = '{ "name": "' + name + '", "email": ' + email + ', "phone":' + phone + '}';
 
       $.ajax(
         {
