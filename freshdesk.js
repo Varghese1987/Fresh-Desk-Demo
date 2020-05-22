@@ -1,5 +1,5 @@
 var div_cont = document.createElement('div');
-div_cont.setAttribute('class', 'container');
+div_cont.setAttribute('class', 'container bg');
 document.body.appendChild(div_cont);
 
 var div_row = document.createElement('div');
