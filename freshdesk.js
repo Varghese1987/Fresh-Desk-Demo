@@ -120,15 +120,7 @@ $("#create").click(
     // console.log(ticketSub);
     alert(ticketSub);
 
-    ticket_data = `
-    { 
-      "description": "${document.getElementById('Textarea').value}", 
-      "subject": "${document.getElementById('subject').value}", 
-      "email": "tom@outerspace.com", 
-      "priority": 1, 
-      "status": 2, 
-      "cc_emails": ["ram@freshdesk.com","diana@freshdesk.com"] 
-    }`;
+    ticket_data = '{ "description": "Details about the issue...1", "subject": "Support Needed...1", "email": "tom@outerspace.com", "priority": 1, "status": 2, "cc_emails": ["ram@freshdesk.com","diana@freshdesk.com"] }';
 
     $.ajax(
       {
